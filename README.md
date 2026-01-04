@@ -1,14 +1,14 @@
-# Cozy Café - Klientapplikation
+# Cozy CafÃ© - Klientapplikation
 
-En fullstack café-hanteringsapplikation byggd med C# .NET 10 och vanilla JavaScript. Detta projekt innehåller både en RESTful API backend och en frontend webbapplikation för att hantera produkter, beställningar och kundvagnsfunktionalitet.
+En fullstack cafÃ©-hanteringsapplikation byggd med C# .NET 10 och vanilla JavaScript. Detta projekt innehÃ¥ller bÃ¥de en RESTful API backend och en frontend webbapplikation fÃ¶r att hantera produkter, bestÃ¤llningar och kundvagnsfunktionalitet.
 
-## Innehållsförteckning
+## InnehÃ¥llsfÃ¶rteckning
 
 - [Projektstruktur](#projektstruktur)
 - [Teknologier](#teknologier)
-- [Komma igång](#komma-igång)
+- [Komma igÃ¥ng](#komma-igÃ¥ng)
 - [Arkitektur](#arkitektur)
-- [Kända problem](#kända-problem)
+- [KÃ¤nda problem](#kÃ¤nda-problem)
 - [Testning](#testning)
 - [Bidra](#bidra)
 
@@ -16,13 +16,13 @@ En fullstack café-hanteringsapplikation byggd med C# .NET 10 och vanilla JavaScr
 
 ```
 ClientCafe/
-??? ClientApi/              # Huvudsakligt API-projekt
-??? Entities/               # Domänmodeller (Order, Product, OrderItem)
-??? EntityFramework/        # Databaskontext och konfigurationer
-??? Services/               # Affärslogiklager
-??? Services.Tests/         # Enhetstester för services
-??? Requests/              # Request DTOs
-??? CafePublicHtml/        # Frontend HTML/CSS/JS-filer (om tillgänglig)
+    ClientApi/              # Huvudsakligt API-projekt
+    Entities/               # DomÃ¤nmodeller (Order, Product, OrderItem)
+    EntityFramework/        # Databaskontext och konfigurationer
+    Services/               # AffÃ¤rslogiklager
+    Services.Tests/         # Enhetstester fÃ¶r services
+    Requests/              # Request DTOs
+    CafePublicHtml/        # Frontend HTML/CSS/JS-filer (om tillgÃ¤nglig)
 ```
 
 ### Projekt
@@ -30,9 +30,9 @@ ClientCafe/
 | Projekt | Beskrivning | Ramverk |
 |---------|-------------|---------|
 | **ClientApi** | ASP.NET Core Web API | .NET 10 |
-| **Entities** | Domänentiteter och modeller | .NET 10 |
+| **Entities** | DomÃ¤nentiteter och modeller | .NET 10 |
 | **EntityFramework** | EF Core DbContext och migrationer | .NET 10 |
-| **Services** | Affärslogiktjänster | .NET 10 |
+| **Services** | AffÃ¤rslogiktjÃ¤nster | .NET 10 |
 | **Services.Tests** | Enhetstester med xUnit | .NET 10 |
 | **Requests** | Request/Response DTOs | .NET 10 |
 
@@ -40,24 +40,24 @@ ClientCafe/
 
 ### Backend
 - **.NET 10** - Senaste .NET-ramverket
-- **C# 14.0** - Senaste C#-språkfunktioner
-- **Entity Framework Core** - ORM för databasåtkomst
+- **C# 14.0** - Senaste C#-sprÃ¥kfunktioner
+- **Entity Framework Core** - ORM fÃ¶r databasÃ¥tkomst
 - **ASP.NET Core Web API** - RESTful API-ramverk
 - **xUnit** - Enhetstestramverk
 
 ### Frontend
 - **HTML5**
 - **CSS3** (Grid, Flexbox, Media Queries)
-- **Vanilla JavaScript** - Inga ramverk krävs
+- **Vanilla JavaScript** - Inga ramverk krÃ¤vs
 - **Live Server** - Utvecklingsserver
 
-## Komma igång
+## Komma igÃ¥ng
 
-### Förutsättningar
+### FÃ¶rutsÃ¤ttningar
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0)
 - [Visual Studio 2022](https://visualstudio.microsoft.com/) eller [VS Code](https://code.visualstudio.com/)
-- [Live Server Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) för VS Code (för frontend)
+- [Live Server Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) fÃ¶r VS Code (fÃ¶r frontend)
 
 ### Backend-installation
 
@@ -67,38 +67,38 @@ ClientCafe/
    cd ClientCafe
    ```
 
-2. **Återställ beroenden**
+2. **Ã…terstÃ¤ll beroenden**
    ```bash
    dotnet restore
    ```
 
-3. **Kör API:et**
+3. **KÃ¶r API:et**
    ```bash
    cd ClientApi
    dotnet run
    ```
-   API:et kommer vara tillgängligt på `https://localhost:5001`
+   API:et kommer vara tillgÃ¤ngligt pÃ¥ `https://localhost:5001`
 
-4. **Verifiera att API:et körs**
-   Öppna webbläsaren och navigera till: `https://localhost:5001/products`
+4. **Verifiera att API:et kÃ¶rs**
+   Ã–ppna webblÃ¤saren och navigera till: `https://localhost:5001/products`
 
-**OBS:** Projektet använder InMemoryDatabase, så inga databasmigrationer behövs.
+**OBS:** Projektet anvÃ¤nder InMemoryDatabase, sÃ¥ inga databasmigrationer behÃ¶vs.
 
 ### Frontend-installation
 
 1. **Installera Live Server Extension i VS Code**
-   - Öppna VS Code
-   - Gå till Extensions (Ctrl+Shift+X)
-   - Sök efter "Live Server" av Ritwick Dey
-   - Klicka på "Install"
+   - Ã–ppna VS Code
+   - GÃ¥ till Extensions (Ctrl+Shift+X)
+   - SÃ¶k efter "Live Server" av Ritwick Dey
+   - Klicka pÃ¥ "Install"
 
-2. **Öppna frontend**
-   - Öppna mappen `CafePublicHtml` i VS Code
-   - Högerklicka på `index.html`
-   - Välj "Open with Live Server"
-   - Webbplatsen öppnas på `http://127.0.0.1:5500`
+2. **Ã–ppna frontend**
+   - Ã–ppna mappen `CafePublicHtml` i VS Code
+   - HÃ¶gerklicka pÃ¥ `index.html`
+   - VÃ¤lj "Open with Live Server"
+   - Webbplatsen Ã¶ppnas pÃ¥ `http://127.0.0.1:5500`
 
-**OBS:** Live Server krävs eftersom att öppna HTML-filer direkt (file:///) gör att webbläsare blockerar API-anrop av säkerhetsskäl.
+**OBS:** Live Server krÃ¤vs eftersom att Ã¶ppna HTML-filer direkt (file:///) gÃ¶r att webblÃ¤sare blockerar API-anrop av sÃ¤kerhetsskÃ¤l.
 
 ## Arkitektur
 
@@ -110,7 +110,7 @@ ClientCafe/
 ???????????????
        ?
 ???????????????
-?  Services   ?  ? Affärslogik (OrderService, ProductService)
+?  Services   ?  ? AffÃ¤rslogik (OrderService, ProductService)
 ???????????????
        ?
 ???????????????????
@@ -118,7 +118,7 @@ ClientCafe/
 ???????????????????
        ?
 ???????????????
-?  Entities   ?  ? Domänmodeller (Order, Product, OrderItem)
+?  Entities   ?  ? DomÃ¤nmodeller (Order, Product, OrderItem)
 ???????????????
 ```
 
@@ -126,88 +126,88 @@ ClientCafe/
 
 #### Entities
 - `Product` - Produktinformation
-- `Order` - Kundbeställningar
-- `OrderItem` - Radartiklar i beställningar
+- `Order` - KundbestÃ¤llningar
+- `OrderItem` - Radartiklar i bestÃ¤llningar
 
 #### Request DTOs
-- `CreateOrderRequest` - Begäran för att skapa en ny beställning
-- `CreateOrderItemRequest` - Produkt och kvantitet för beställningsartiklar
+- `CreateOrderRequest` - BegÃ¤ran fÃ¶r att skapa en ny bestÃ¤llning
+- `CreateOrderItemRequest` - Produkt och kvantitet fÃ¶r bestÃ¤llningsartiklar
 
 #### Services
 - `ProductService` - Produkthanteringslogik
 - `OrderService` - Orderbehandlingslogik
 
-## Kända problem
+## KÃ¤nda problem
 
-Detta projekt innehåller avsiktliga problem för utbildningsändamål. Nedan är de problem som ska lösas:
+Detta projekt innehÃ¥ller avsiktliga problem fÃ¶r utbildningsÃ¤ndamÃ¥l. Nedan Ã¤r de problem som ska lÃ¶sas:
 
 ### Kritiska Backend-buggar
 
 #### Bug 1: Product Service Problem - KRITISK
 - **Symptom**: GET `/products` endpoint returnerar felaktiga data eller kastar undantag
 - **Plats**: ProductService eller Product Repository
-- **Åtgärd krävs**: Granska databasanrop, null-hantering och LINQ-queries
+- **Ã…tgÃ¤rd krÃ¤vs**: Granska databasanrop, null-hantering och LINQ-queries
 
 #### Bug 2: Order Service Problem - KRITISK
-- **Symptom**: POST `/orders` endpoint misslyckas eller skapar felaktiga beställningar
+- **Symptom**: POST `/orders` endpoint misslyckas eller skapar felaktiga bestÃ¤llningar
 - **Plats**: OrderService eller Order Repository
-- **Åtgärd krävs**: Granska validering, databasinsättningar och relationshantering
+- **Ã…tgÃ¤rd krÃ¤vs**: Granska validering, databasinsÃ¤ttningar och relationshantering
 
 ### Frontend-problem (HTML & CSS)
 
-**VIKTIGT:** JavaScript-filerna (`products.js`, `product-detail.js`, `cart.js`, `api.js`) fungerar korrekt. Ändra INTE dem!
+**VIKTIGT:** JavaScript-filerna (`products.js`, `product-detail.js`, `cart.js`, `api.js`) fungerar korrekt. Ã„ndra INTE dem!
 
 #### Produktsida (products.html)
 
-1. **Dålig layout - HÖG PRIORITET
-   - Problem: Produkter visas i en enda kolumn istället för rutnät
-   - Lösning: Implementera CSS Grid/Flexbox med 3+ kolumner
+1. **DÃ¥lig layout - HÃ–G PRIORITET
+   - Problem: Produkter visas i en enda kolumn istÃ¤llet fÃ¶r rutnÃ¤t
+   - LÃ¶sning: Implementera CSS Grid/Flexbox med 3+ kolumner
 
-2. **Saknad prisformatering - HÖG PRIORITET
+2. **Saknad prisformatering - HÃ–G PRIORITET
    - Problem: Priser visas utan "kr" valuta
-   - Lösning: Lägg till CSS `::after` pseudo-element
+   - LÃ¶sning: LÃ¤gg till CSS `::after` pseudo-element
 
 3. **Saknade produktbilder - MEDEL PRIORITET
    - Problem: Inga produktbilder visas
-   - Lösning: Skapa CSS platshållare med `::before` pseudo-element
+   - LÃ¶sning: Skapa CSS platshÃ¥llare med `::before` pseudo-element
 
-4. **Dålig knappstyling - MEDEL PRIORITET
+4. **DÃ¥lig knappstyling - MEDEL PRIORITET
    - Problem: "View Details" och "Add to Cart" knappar saknar styling
-   - Lösning: Tillämpa `.btn` och `.btn-primary` stilar
+   - LÃ¶sning: TillÃ¤mpa `.btn` och `.btn-primary` stilar
 
-5. **Ingen responsiv design - LÅG PRIORITET
-   - Problem: Dålig mobilupplevelse
-   - Lösning: Lägg till media queries för mobil (max-width: 768px)
+5. **Ingen responsiv design - LÃ…G PRIORITET
+   - Problem: DÃ¥lig mobilupplevelse
+   - LÃ¶sning: LÃ¤gg till media queries fÃ¶r mobil (max-width: 768px)
 
 #### Produktdetaljsida (product-detail.html)
 
-6. **Ingen tvåkolumnslayout - HÖG PRIORITET
-   - Problem: Innehåll staplas vertikalt
-   - Lösning: Implementera 2-kolumners layout (bild till vänster, info till höger)
+6. **Ingen tvÃ¥kolumnslayout - HÃ–G PRIORITET
+   - Problem: InnehÃ¥ll staplas vertikalt
+   - LÃ¶sning: Implementera 2-kolumners layout (bild till vÃ¤nster, info till hÃ¶ger)
 
-7. **Ful bildplatshållare - MEDEL PRIORITET
-   - Problem: Oprofessionellt utseende på platshållare
-   - Lösning: Förbättra med ordentlig storlek (400px+), färger, border-radius
+7. **Ful bildplatshÃ¥llare - MEDEL PRIORITET
+   - Problem: Oprofessionellt utseende pÃ¥ platshÃ¥llare
+   - LÃ¶sning: FÃ¶rbÃ¤ttra med ordentlig storlek (400px+), fÃ¤rger, border-radius
 
-8. **Saknad prisformatering - HÖG PRIORITET
-   - Problem: Pris saknar "kr" och framträdande
-   - Lösning: Lägg till `::after` med "kr", öka storlek (1.5rem+)
+8. **Saknad prisformatering - HÃ–G PRIORITET
+   - Problem: Pris saknar "kr" och framtrÃ¤dande
+   - LÃ¶sning: LÃ¤gg till `::after` med "kr", Ã¶ka storlek (1.5rem+)
 
-9. **Dålig knapp-/länkstyling - MEDEL PRIORITET
-   - Problem: "Add to Cart" knapp och "Back" länk är ostilad
-   - Lösning: Tillämpa `.btn .btn-primary` styling
+9. **DÃ¥lig knapp-/lÃ¤nkstyling - MEDEL PRIORITET
+   - Problem: "Add to Cart" knapp och "Back" lÃ¤nk Ã¤r ostilad
+   - LÃ¶sning: TillÃ¤mpa `.btn .btn-primary` styling
 
-10. **Dålig kvantitetsväljare - LÅG PRIORITET
-    - Problem: Input-fält för litet och oformaterat
-    - Lösning: Lägg till padding, border-radius, bättre styling
+10. **DÃ¥lig kvantitetsvÃ¤ljare - LÃ…G PRIORITET
+    - Problem: Input-fÃ¤lt fÃ¶r litet och oformaterat
+    - LÃ¶sning: LÃ¤gg till padding, border-radius, bÃ¤ttre styling
 
-11. **Ingen responsiv design - LÅG PRIORITET
-    - Problem: Dålig mobillayout
-    - Lösning: Lägg till media query för enkolumn på mobil
+11. **Ingen responsiv design - LÃ…G PRIORITET
+    - Problem: DÃ¥lig mobillayout
+    - LÃ¶sning: LÃ¤gg till media query fÃ¶r enkolumn pÃ¥ mobil
 
 ## Testning
 
-### Köra enhetstester
+### KÃ¶ra enhetstester
 
 ```bash
 cd Services.Tests
@@ -216,25 +216,25 @@ dotnet test
 
 ### Manuell testchecklista
 
-- [ ] Produktlistan visas i rutnätslayout
+- [ ] Produktlistan visas i rutnÃ¤tslayout
 - [ ] Priser visas med "kr" suffix
-- [ ] Produktbilder/platshållare synliga
+- [ ] Produktbilder/platshÃ¥llare synliga
 - [ ] "View Details" navigerar korrekt
 - [ ] Produktdetaljer visas i 2-kolumners layout
-- [ ] "Add to Cart" fungerar och uppdaterar kundvagnsräknare
+- [ ] "Add to Cart" fungerar och uppdaterar kundvagnsrÃ¤knare
 - [ ] Kundvagnssidan visar artiklar korrekt
 - [ ] Orderskapande lyckas
-- [ ] Responsiv design fungerar på mobil
+- [ ] Responsiv design fungerar pÃ¥ mobil
 
 ### Testverktyg
 
-1. **API-testning**: Använd `test-api.html` för att debugga API-problem
-2. **Browser DevTools**: Tryck F12 för att inspektera element och testa CSS
-3. **Mobilvy**: Växla Device Toolbar i DevTools för responsiv testning
+1. **API-testning**: AnvÃ¤nd `test-api.html` fÃ¶r att debugga API-problem
+2. **Browser DevTools**: Tryck F12 fÃ¶r att inspektera element och testa CSS
+3. **Mobilvy**: VÃ¤xla Device Toolbar i DevTools fÃ¶r responsiv testning
 
-## Hjälpresurser
+## HjÃ¤lpresurser
 
-### CSS-koncept som behövs
+### CSS-koncept som behÃ¶vs
 
 - **CSS Grid**: `display: grid`, `grid-template-columns`, `gap`
 - **Flexbox**: `display: flex`, `justify-content`, `align-items`
@@ -244,16 +244,16 @@ dotnet test
 
 ### Utvecklingstips
 
-- Använd Developer Tools (F12) för att inspektera och testa CSS live
-- Läs kommentarer i HTML/CSS-filer noggrant
-- Jämför med fungerande sidor (`index.html`, `cart.html`) för referens
-- Använd `test-api.html` för att debugga API-problem
-- Börja med högprioriterade problem först
-- Jobba i par och hjälp varandra!
+- AnvÃ¤nd Developer Tools (F12) fÃ¶r att inspektera och testa CSS live
+- LÃ¤s kommentarer i HTML/CSS-filer noggrant
+- JÃ¤mfÃ¶r med fungerande sidor (`index.html`, `cart.html`) fÃ¶r referens
+- AnvÃ¤nd `test-api.html` fÃ¶r att debugga API-problem
+- BÃ¶rja med hÃ¶gprioriterade problem fÃ¶rst
+- Jobba i par och hjÃ¤lp varandra!
 
 ## Bidra
 
-Detta är ett utbildningsprojekt. När du fixar problem:
+Detta Ã¤r ett utbildningsprojekt. NÃ¤r du fixar problem:
 
 1. Skapa en feature-branch
 2. Fixa ett problem i taget
@@ -263,21 +263,21 @@ Detta är ett utbildningsprojekt. När du fixar problem:
 
 ## Noteringar
 
-- **CORS är redan konfigurerat** - API:et tillåter webbläsarförfrågningar
-- **JavaScript är korrekt** - Ändra inte JS-filer
+- **CORS Ã¤r redan konfigurerat** - API:et tillÃ¥ter webblÃ¤sarfÃ¶rfrÃ¥gningar
+- **JavaScript Ã¤r korrekt** - Ã„ndra inte JS-filer
 - Alla fixar ska vara i **HTML, CSS och C#-filer endast**
 
 ## Licens
 
-Detta är ett utbildningsprojekt för skoländamål.
+Detta Ã¤r ett utbildningsprojekt fÃ¶r skolÃ¤ndamÃ¥l.
 
 ## Sammanfattning
 
 **Totalt antal problem att fixa:**
 - Kritisk: 2 backend-buggar
-- Hög prioritet: 5 frontend-problem
+- HÃ¶g prioritet: 5 frontend-problem
 - Medel prioritet: 5 frontend-problem  
-- Låg prioritet: 4 frontend-problem
+- LÃ¥g prioritet: 4 frontend-problem
 
 **Totalt: 13 problem + 2 kritiska buggar**
 
