@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uppgifter - Cozy Café Webbplats</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            background-color: #ecf0f1;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+        }
+        h3 {
+            color: #2c3e50;
+            margin-top: 20px;
+        }
+        .section {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .problem {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .bug {
+            background-color: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .task {
+            background-color: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .file {
+            background-color: #e7f3ff;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+        }
+        .code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #c7254e;
+        }
+        ul {
+            margin: 10px 0;
+        }
+        li {
+            margin: 8px 0;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .info {
+            background-color: #d1ecf1;
+            border: 1px solid #17a2b8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .success {
+            background-color: #d4edda;
+            border: 1px solid #28a745;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        strong {
+            color: #2c3e50;
+        }
+        .priority {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .priority-high {
+            background-color: #dc3545;
+            color: white;
+        }
+        .priority-medium {
+            background-color: #ffc107;
+            color: #000;
+        }
+        .priority-low {
+            background-color: #28a745;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>☕ Cozy Café - Uppgifter och Problem att Åtgärda</h1>
+    
+    <div class="info">
+        <strong>📚 Instruktioner:</strong> Denna webbplats har flera avsiktliga problem som ni ska lösa. 
+        Dessutom finns det några buggar i API:et som måste åtgärdas. Er uppgift är att förbättra både 
+        frontend (HTML/CSS) och backend (C# API).
+    </div>
+
+    <div class="warning">
+        <strong>⚠️ VIKTIGT:</strong> JavaScript-koden fungerar korrekt! Ändra INTE i <span class="file">products.js</span>, 
+        <span class="file">product-detail.js</span>, <span class="file">cart.js</span> eller <span class="file">api.js</span>. 
+        Alla förbättringar ska göras i HTML och CSS filer samt i C# API:et.
+    </div>
+
+    <!-- ==================== FRONTEND PROBLEM ==================== -->
+    
+    <div class="section">
+        <h2>🎨 Del 1: Frontend Problem (HTML & CSS)</h2>
+        
+        <h3>📄 Produktlista (products.html & styles.css)</h3>
+        
+        <div class="problem">
+            <strong>Problem 1: Dålig Layout</strong>
+            <span class="priority priority-high">HÖG PRIORITET</span>
+            <p>Produkterna visas i en enda kolumn istället för ett rutnät.</p>
+            <ul>
+                <li><strong>Fil att ändra:</strong> <span class="file">styles.css</span></li>
+                <li><strong>CSS-klass:</strong> <span class="code">.bad-product-card</span></li>
+                <li><strong>Åtgärd:</strong> Skapa en CSS Grid eller Flexbox layout som visar produkterna i flera kolumner (minst 3 kolumner på desktop)</li>
+                <li><strong>Tips:</strong> Lägg produkterna i en container med klass <span class="code">.product-grid</span> och använd <span class="code">display: grid</span></li>
+            </ul>
+        </div>
+
+        <div class="problem">
+            <strong>Problem 2: Prisformatering Saknas</strong>
+            <span class="priority priority-high">HÖG PRIORITET</span>
+            <p>Priset visas utan kronor-tecken (kr) och har inte korrekt formatering.</p>
+            <ul>
+                <li><strong>Fil att ändra:</strong> <span class="file">styles.css</span></li>
+                <li><strong>CSS-klass:</strong> <span class="code">.bad-product-price</span></li>
+                <li><strong>Åtgärd:</strong> Använd CSS <span class="code">::after</span> pseudo-element för att lägga till " kr" efter priset</li>
+                <li><strong>Exempel:</strong> <span class="code">.bad-product-price::after { content: " kr"; }</span></li>
+            </ul>
+        </div>
+
+        <div class="problem">
+            <strong>Problem 3: Produktbilder Saknas</strong>
+            <span class="priority priority-medium">MEDEL PRIORITET</span>
+            <p>Inga produktbilder visas.</p>
+            <ul>
+                <li><strong>Fil att ändra:</strong> <span class="file">styles.css</span></li>
+                <li><strong>CSS-klass:</strong> <span class="code">.bad-product-card</span></li>
+                <li><strong>Åtgärd:</strong> Skapa en platshållare för bilder med CSS <span class="code">::before</span> pseudo-element</li>
+                <li><strong>Tips:</strong> Använd background-color, height, width och kanske en emoji eller gradient</li>
+            </ul>
+        </div>
+
+        <div class="problem">
+            <strong>Problem 4: Dålig Knappstyling</strong>
+            <span class="priority priority-medium">MEDEL PRIORITET</span>
+            <p>Knapparna "View Details" och "Add to Cart" har ingen styling.</p>
+            <ul>
+                <li><strong>Fil att ändra:</strong> <span class="file">styles.css</span></li>
+                <li><strong>CSS-klasser:</strong> <span class="code">.bad-product-actions a</span>, <span class="code">.bad-product-actions button</span></li>
+                <li><strong>Åtgärd:</strong> Ge knapparna samma styling som <span class="code">.btn</span> och <span class="code">.btn-primary</span> klasserna</li>
+            </ul>
+        </div>
+
+        <div class="problem">
+            <strong>Problem 5: Ingen Responsiv Design</strong>
+            <span class="priority priority-low">LÅG PRIORITET</span>
+            <p>Sidan ser dålig ut på mobila enheter.</p>
+            <ul>
+                <li><strong>Fil att ändra:</strong> <span class="file">styles.css</span></li>
+                <li><strong>Åtgärd:</strong> Lägg till media queries för mindre skärmar (max-width: 768px)</li>
+                <li><strong>Tips:</strong> Ändra grid till 1-2 kolumner på mobil</li>
+            </ul>
+        </div>
+
+        <h3>📄 Produktdetaljer (product-detail.html & styles.css)</h3>
+
+        <div class="problem">
+            <strong>Problem 6: Ingen Tvåkolumnslayout</strong>
+            <span class="priority priority-high">HÖG PRIORITET</span>
+            <p>Produktinformationen staplas vertikalt istället för att visa bild och info sida vid sida.</p>
+            <ul>
+                <li><strong>Fil att ändra:</strong> <span class="file">styles.css</span></li>
+                <li><strong>CSS-klass:</strong> <span class="code">.bad-detail-container</span></li>
+                <li><strong>Åtgärd:</strong> Skapa en 2-kolumners layout med CSS Grid eller Flexbox (bild till vänster, info till höger)</li>
+            </ul>
+        </div>
+
+        <div class="problem">
+            <strong>Problem 7: Ful Bildplatshållare</strong>
+            <span class="priority priority-medium">MEDEL PRIORITET</span>
+            <p>Bildplatshållaren ser oprofessionell ut.</p>
+            <ul>
+                <li><strong>Fil att ändra:</strong> <span class="file">styles.css</span></li>
+                <li><strong>CSS-klasser:</strong> <span class="code">.bad-detail-image</span>, <span class="code">.bad-image-placeholder</span></li>
+                <li><strong>Åtgärd:</strong> Förbättra med proper storlek (minst 400px bred), bakgrundsfärg, border-radius, och eventuellt en gradient</li>
+            </ul>
+        </div>
+
+        <div class="problem">
+            <strong>Problem 8: Prisformatering Saknas</strong>
+            <span class="priority priority-high">HÖG PRIORITET</span>
+            <p>Priset visas utan "kr" och är inte tillräckligt framträdande.</p>
+            <ul>
+                <li><strong>Fil att ändra:</strong> <span class="file">styles.css</span></li>
+                <li><strong>CSS-klass:</strong> <span class="code">.bad-detail-price</span></li>
+                <li><strong>Åtgärd:</strong> Lägg till " kr" med <span class="code">::after</span>, gör texten större (minst 1.5rem) och ge den en tydlig färg</li>
+            </ul>
+        </div>
+
+        <div class="problem">
+            <strong>Problem 9: Dålig Knapp- och Länkstyling</strong>
+            <span class="priority priority-medium">MEDEL PRIORITET</span>
+            <p>"Add to Cart"-knappen och "Back to Products"-länken har ingen styling.</p>
+            <ul>
+                <li><strong>Fil att ändra:</strong> <span class="file">styles.css</span></li>
+                <li><strong>CSS-klasser:</strong> <span class="code">.bad-add-button</span>, <span class="code">.bad-back-link</span></li>
+                <li><strong>Åtgärd:</strong> Styla som <span class="code">.btn .btn-primary</span></li>
+            </ul>
+        </div>
+
+        <div class="problem">
+            <strong>Problem 10: Dålig Kvantitetsväljare</strong>
+            <span class="priority priority-low">LÅG PRIORITET</span>
+            <p>Input-fältet för antal är för litet och oformaterat.</p>
+            <ul>
+                <li><strong>Fil att ändra:</strong> <span class="file">styles.css</span></li>
+                <li><strong>CSS-klass:</strong> <span class="code">.bad-quantity-selector input</span></li>
+                <li><strong>Åtgärd:</strong> Gör input-fältet större, lägg till padding, border-radius och bättre styling</li>
+            </ul>
+        </div>
+
+        <div class="problem">
+            <strong>Problem 11: Ingen Responsiv Design för Produktdetaljer</strong>
+            <span class="priority priority-low">LÅG PRIORITET</span>
+            <p>Sidan fungerar dåligt på mobila enheter.</p>
+            <ul>
+                <li><strong>Fil att ändra:</strong> <span class="file">styles.css</span></li>
+                <li><strong>Åtgärd:</strong> Lägg till media query som ändrar layout till 1 kolumn på mobil</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ==================== BACKEND PROBLEM ==================== -->
+
+    <div class="section">
+        <h2>🔧 Del 2: Backend Problem (C# API)</h2>
+        
+        <div class="warning">
+            <strong>⚠️ OBS!</strong> Det finns buggar i API:et som måste åtgärdas innan webbplatsen fungerar korrekt!
+        </div>
+
+        <div class="success">
+            <strong>✓ CORS är redan konfigurerat!</strong> API:et tillåter redan anrop från webbläsaren, så ni behöver inte fixa det.
+        </div>
+
+        <h3>🐛 API Buggar</h3>
+
+        <div class="bug">
+            <strong>Bug 1: Product Service Problem</strong>
+            <span class="priority priority-high">KRITISK</span>
+            <p>Det finns ett fel i Product Service som förhindrar att produkter hämtas korrekt.</p>
+            <ul>
+                <li><strong>Symptom:</strong> GET /products endpoint returnerar felaktiga data eller kastar exceptions</li>
+                <li><strong>Fil att undersöka:</strong> Product Service eller Product Repository i C# projektet</li>
+                <li><strong>Åtgärd:</strong> Granska och debugga Product Service logiken</li>
+                <li><strong>Tips:</strong> Kontrollera databasanrop, null-hantering, och LINQ queries</li>
+            </ul>
+        </div>
+
+        <div class="bug">
+            <strong>Bug 2: Order Service Problem</strong>
+            <span class="priority priority-high">KRITISK</span>
+            <p>Det finns ett fel i Order Service som förhindrar att ordrar skapas korrekt.</p>
+            <ul>
+                <li><strong>Symptom:</strong> POST /orders endpoint misslyckas eller skapar felaktiga ordrar</li>
+                <li><strong>Fil att undersöka:</strong> Order Service eller Order Repository i C# projektet</li>
+                <li><strong>Åtgärd:</strong> Granska och debugga Order Service logiken</li>
+                <li><strong>Tips:</strong> Kontrollera validering, databasinsättningar, och relations-hantering</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ==================== TESTNING ==================== -->
+
+    <div class="section">
+        <h2>✅ Del 3: Testning och Validering</h2>
+        
+        <h3>Hur man testar er lösning:</h3>
+        
+        <div class="task">
+            <strong>Steg 1: Installera Live Server (Engångsinstallation)</strong>
+            <ul>
+                <li>Öppna VS Code</li>
+                <li>Gå till Extensions (Ctrl+Shift+X)</li>
+                <li>Sök efter "Live Server" av Ritwick Dey</li>
+                <li>Klicka på "Install"</li>
+            </ul>
+        </div>
+
+        <div class="task">
+            <strong>Steg 2: Starta API:et</strong>
+            <ul>
+                <li>Kör C# API-projektet (dotnet run eller F5 i Visual Studio)</li>
+                <li>Verifiera att det körs på https://localhost:5001</li>
+                <li>Testa genom att öppna <span class="code">https://localhost:5001/products</span> i webbläsaren</li>
+            </ul>
+        </div>
+
+        <div class="task">
+            <strong>Steg 3: Öppna Webbplatsen med Live Server</strong>
+            <ul>
+                <li>Öppna CafePublicHtml-mappen i VS Code</li>
+                <li>Högerklicka på <span class="file">index.html</span></li>
+                <li>Välj "Open with Live Server"</li>
+                <li>Webbplatsen öppnas automatiskt i din webbläsare (vanligtvis http://127.0.0.1:5500)</li>
+            </ul>
+        </div>
+
+        <div class="task">
+            <strong>Steg 3: Testa Funktionalitet</strong>
+            <ul>
+                <li>✓ Produktlistan visas i ett snyggt rutnät</li>
+                <li>✓ Priser visas med "kr"</li>
+                <li>✓ Produktbilder (eller platshållare) visas</li>
+                <li>✓ Klicka på "View Details" för att se produktdetaljer</li>
+                <li>✓ Produktdetaljer visas i 2-kolumners layout</li>
+                <li>✓ "Add to Cart" fungerar och uppdaterar cart-räknaren</li>
+                <li>✓ Gå till varukorgen och skapa en order</li>
+                <li>✓ Ordern sparas korrekt i API:et</li>
+            </ul>
+        </div>
+
+        <div class="task">
+            <strong>Steg 4: Testa Responsivitet</strong>
+            <ul>
+                <li>Öppna Developer Tools (F12)</li>
+                <li>Växla till mobil-vy (Toggle Device Toolbar)</li>
+                <li>Verifiera att layouten fungerar på olika skärmstorlekar</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ==================== HJÄLPRESURSER ==================== -->
+
+    <div class="section">
+        <h2>📚 Hjälpresurser</h2>
+        
+        <div class="info">
+            <h3>CSS Koncept ni behöver:</h3>
+            <ul>
+                <li><strong>CSS Grid:</strong> <span class="code">display: grid</span>, <span class="code">grid-template-columns</span>, <span class="code">gap</span></li>
+                <li><strong>Flexbox:</strong> <span class="code">display: flex</span>, <span class="code">justify-content</span>, <span class="code">align-items</span></li>
+                <li><strong>Pseudo-element:</strong> <span class="code">::before</span>, <span class="code">::after</span>, <span class="code">content</span></li>
+                <li><strong>Media Queries:</strong> <span class="code">@media (max-width: 768px) { }</span></li>
+                <li><strong>Responsiv Design:</strong> Viewport units, percentage widths, mobile-first approach</li>
+            </ul>
+        </div>
+
+        <div class="success">
+            <h3>Tips för Framgång:</h3>
+            <ul>
+                <li>🔍 Använd Developer Tools (F12) för att inspektera element och testa CSS live</li>
+                <li>📝 Läs kommentarerna i HTML- och CSS-filerna noggrant</li>
+                <li>🎨 Jämför med de fungerande sidorna (index.html, cart.html) för inspiration</li>
+                <li>🐛 Använd <span class="file">test-api.html</span> för att debugga API-problem</li>
+                <li>💡 Börja med de högprioriterade problemen först</li>
+                <li>👥 Jobba i par och hjälp varandra!</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🎯 Sammanfattning</h2>
+        <p><strong>Totalt antal problem att fixa:</strong></p>
+        <ul>
+            <li>Frontend (HTML/CSS): 11 problem</li>
+            <li>Backend (C# API): 2 buggar</li>
+        </ul>
+        
+        <div class="info" style="margin-top: 20px;">
+            <h3>📝 Viktig Information om Verktyg:</h3>
+            <p><strong>Live Server Extension:</strong> Detta är ett gratis verktyg för VS Code som låter er köra HTML-sidor lokalt. Det startar en lokal webbserver automatiskt och uppdaterar sidan när ni sparar ändringar. Perfekt för webbutveckling!</p>
+            <p><strong>Varför kan vi inte bara dubbelklicka på HTML-filen?</strong> När ni öppnar en HTML-fil direkt (file:///) blockerar webbläsaren API-anrop av säkerhetsskäl. Därför behöver vi en lokal webbserver.</p>
+        </div>
+        
+        <p style="margin-top: 20px;"><strong>Lycka till!</strong> 🚀</p>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cozy Café - Product Details</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>☕ Cozy Café</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Menu</a></li>
+                <li><a href="cart.html">Cart <span id="cart-count" class="cart-badge">0</span></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- INTENTIONAL HTML/CSS ISSUES FOR STUDENTS TO FIX:
+             The JavaScript works correctly but outputs HTML with bad CSS classes.
+             Students need to:
+             
+             1. CREATE proper CSS layout in styles.css for .bad-detail-container
+                - Should be a 2-column grid (image on left, info on right)
+                - Currently everything stacks vertically
+                - Use flexbox or CSS grid
+             
+             2. STYLE the image placeholder (.bad-detail-image, .bad-image-placeholder)
+                - Should look professional with proper sizing
+                - Add background color, border, or gradient
+                - Should be at least 400px wide
+             
+             3. FIX the price display (.bad-detail-price)
+                - Add $ symbol via CSS ::before
+                - Should show 2 decimal places
+                - Should be larger and more prominent
+             
+             4. IMPROVE the back button styling (.bad-back-link)
+                - Should look like a proper button
+                - Add proper spacing from other elements
+             
+             5. STYLE the quantity selector (.bad-quantity-selector)
+                - Make it more user-friendly
+                - Add proper spacing and sizing
+                - Style the input field
+             
+             6. FIX the add to cart button (.bad-add-button)
+                - Should match .btn .btn-primary styles
+                - Currently has no styling
+             
+             7. ADD responsive design
+                - Should stack on mobile (1 column)
+                - Add appropriate media queries
+             
+             8. IMPROVE typography and spacing
+                - Better margins and padding throughout
+                - Proper heading hierarchy
+        -->
+        
+        <div id="product-detail"></div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Cozy Café. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/product-detail.js"></script>
+</body>
+</html>

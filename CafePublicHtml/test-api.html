@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Connection Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; }
+        .test-result { padding: 15px; margin: 10px 0; border-radius: 5px; }
+        .success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .info { background-color: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; margin: 5px; }
+        pre { background: #f4f4f4; padding: 10px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>API Connection Test</h1>
+    
+    <div class="info">
+        <strong>Testing connection to:</strong> https://localhost:5001/products
+    </div>
+    
+    <button onclick="testAPI()">Test API Connection</button>
+    
+    <div id="results"></div>
+    
+    <hr>
+    
+    <h2>How to Fix CORS Issues:</h2>
+    <div class="info">
+        <p>If you see a CORS error, add this to your C# API Program.cs or Startup.cs:</p>
+        <pre>
+// Add this at the top
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
+// After var app = builder.Build();
+app.UseCors("AllowAll");
+        </pre>
+    </div>
+    
+    <script>
+        async function testAPI() {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '<div class="info">Testing HTTPS API...</div>';
+            
+            try {
+                console.log('Attempting to fetch from https://localhost:5001/products');
+                const response = await fetch('https://localhost:5001/products');
+                console.log('Response status:', response.status);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                console.log('Data received:', data);
+                
+                resultsDiv.innerHTML = `
+                    <div class="success">
+                        <strong>✓ SUCCESS!</strong><br>
+                        API is working correctly.<br>
+                        Received ${data.length} products.
+                    </div>
+                    <pre>${JSON.stringify(data, null, 2)}</pre>
+                `;
+            } catch (error) {
+                console.error('Error details:', error);
+                
+                let errorMsg = `
+                    <div class="error">
+                        <strong>✗ FAILED</strong><br>
+                        Error: ${error.message}<br><br>
+                `;
+                
+                if (error.message.includes('Failed to fetch')) {
+                    errorMsg += `
+                        <strong>Possible causes:</strong><br>
+                        1. API is not running on https://localhost:5001<br>
+                        2. CORS is blocking the request (most likely)<br>
+                        3. SSL certificate issue<br>
+                        4. Firewall blocking the connection<br><br>
+                        
+                        <strong>Solutions:</strong><br>
+                        • Make sure your C# API is running<br>
+                        • Add CORS configuration (see below)<br>
+                        • Try the HTTP test button<br>
+                    `;
+                }
+                
+                errorMsg += `</div>`;
+                resultsDiv.innerHTML = errorMsg;
+            }
+        }
+        
+        async function testAPIHttp() {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '<div class="info">Testing HTTP API...</div>';
+            
+            try {
+                console.log('Attempting to fetch from http://localhost:5001/products');
+                const response = await fetch('http://localhost:5001/products');
+                console.log('Response status:', response.status);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                console.log('Data received:', data);
+                
+                resultsDiv.innerHTML = `
+                    <div class="success">
+                        <strong>✓ SUCCESS with HTTP!</strong><br>
+                        API is working on HTTP.<br>
+                        Received ${data.length} products.<br><br>
+                        <strong>Note:</strong> You should update api.js to use http://localhost:5001 instead of https://localhost:5001
+                    </div>
+                    <pre>${JSON.stringify(data, null, 2)}</pre>
+                `;
+            } catch (error) {
+                console.error('Error details:', error);
+                resultsDiv.innerHTML = `
+                    <div class="error">
+                        <strong>✗ FAILED</strong><br>
+                        Error: ${error.message}<br><br>
+                        The API is not responding on HTTP either.<br>
+                        Make sure your C# API is running!
+                    </div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>

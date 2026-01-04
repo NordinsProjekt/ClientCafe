@@ -1,0 +1,18 @@
+<Solution>
+  <Folder Name="/1. Domain/">
+    <Project Path="Entities/Entities.csproj" />
+  </Folder>
+  <Folder Name="/2. Application/">
+    <Project Path="Requests/Requests.csproj" />
+    <Project Path="Services/Services.csproj" />
+  </Folder>
+  <Folder Name="/3. Infrastructure/">
+    <Project Path="EntityFramework/EntityFramework.csproj" />
+  </Folder>
+  <Folder Name="/4. Presentation/">
+    <Project Path="ClientApi/ClientApi.csproj" />
+  </Folder>
+  <Folder Name="/5. Unittests/">
+    <Project Path="Services.Tests/Services.Tests.csproj" />
+  </Folder>
+</Solution>

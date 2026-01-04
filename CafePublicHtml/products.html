@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cozy Café - Menu</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>☕ Cozy Café</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html" class="active">Menu</a></li>
+                <li><a href="cart.html">Cart <span id="cart-count" class="cart-badge">0</span></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2 class="page-title">Our Menu</h2>
+        
+        <!-- INTENTIONAL HTML/CSS ISSUES FOR STUDENTS TO FIX:
+             The JavaScript works correctly but outputs HTML with bad CSS classes.
+             Students need to:
+             
+             1. CREATE proper CSS in styles.css for .bad-product-card class
+                - Currently displays as a single column (should be a grid)
+                - Should use .product-grid container and .product-card items
+             
+             2. FIX the price display in CSS (.bad-product-price)
+                - Missing $ symbol (add via CSS ::before pseudo-element)
+                - Should format with 2 decimal places
+                - Should be styled like .product-price class
+             
+             3. ADD product images in CSS (.bad-product-card)
+                - Create placeholder with CSS background or ::before
+                - Should look like .product-image
+             
+             4. IMPROVE accessibility in HTML structure
+                - Add proper semantic HTML elements
+                - Add ARIA labels where needed
+             
+             5. STYLE the buttons properly (.bad-product-actions)
+                - Should match .btn and .btn-primary styles
+                - Currently unstyled
+             
+             6. FIX responsive design
+                - Should work on mobile devices
+                - Add media queries in CSS
+        -->
+        
+        <div id="products-list"></div>
+        <div id="error-message"></div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Cozy Café. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/products.js"></script>
+</body>
+</html>

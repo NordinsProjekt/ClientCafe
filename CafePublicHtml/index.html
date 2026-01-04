@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cozy Café - Welcome</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>☕ Cozy Café</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="products.html">Menu</a></li>
+                <li><a href="cart.html">Cart <span id="cart-count" class="cart-badge">0</span></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h2>Welcome to Cozy Café</h2>
+            <p>Your favorite place for artisan coffee and fresh pastries</p>
+            <a href="products.html" class="btn btn-primary">Browse Our Menu</a>
+        </div>
+    </header>
+
+    <section class="features">
+        <div class="container">
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">☕</div>
+                    <h3>Premium Coffee</h3>
+                    <p>Ethically sourced beans roasted fresh daily</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🥐</div>
+                    <h3>Fresh Pastries</h3>
+                    <p>Baked in-house every morning</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Quick Delivery</h3>
+                    <p>Order online for pickup or delivery</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Order?</h2>
+            <p>Explore our menu and place your order online</p>
+            <a href="products.html" class="btn btn-secondary">View Menu</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Cozy Café. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script>
+        // Update cart count on page load
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+        document.getElementById('cart-count').textContent = cartCount;
+    </script>
+</body>
+</html>
